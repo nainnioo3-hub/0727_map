@@ -50,7 +50,12 @@ export default function VisitDialog({ cafe, user, open, onOpenChange, onSave, on
         </DialogHeader>
 
         <div className="flex items-center gap-2">
-          <Checkbox id="visit-checked" checked={visited} onCheckedChange={setVisited} />
+          <Checkbox
+            id="visit-checked"
+            checked={visited}
+            onCheckedChange={setVisited}
+            disabled={!user}
+          />
           <Label htmlFor="visit-checked">방문했어요</Label>
         </div>
 
@@ -61,6 +66,7 @@ export default function VisitDialog({ cafe, user, open, onOpenChange, onSave, on
             value={reviewText}
             onChange={(event) => setReviewText(event.target.value)}
             placeholder="이 카페는 어땠나요?"
+            disabled={!user}
           />
         </div>
 
